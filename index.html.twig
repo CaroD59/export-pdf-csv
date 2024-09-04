@@ -1,0 +1,144 @@
+{% block body %}
+    <div id="instance2" class="mt-2" style="width: 555.28pt; height: auto; display: none">
+        <div>
+            <div id="header_reporting" class="header_report">
+                <div class="d-flex align-items-center justify-content-between mb-1">
+                    {% include 'components/title.html.twig' with {'class' : 'd-flex align-items-center justify-content-left text-color-secondary actual-date-reporting', 'style' : 'font-size: 10px', 'title' : '', 'pClass' : '', 'pStyle' : ''} %}
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="pr-3 d-flex align-items-center" style="border-right: 2px solid #1A3861;">
+                            <img src="{{ asset('images/logos/dict-reporting.png') }}" height="30px">
+                        </div>
+                        <div class="pl-3 d-flex align-items-center">
+                            <img src="{{ asset('images/logos/idex-reporting.png') }}" height="30px">
+                        </div>
+                    </div>
+                </div>
+                {% include 'components/title.html.twig' with {'class' : 'd-flex align-items-center justify-content-center text-color-secondary', 'style' : 'font-size: 20px;', 'title' : 'Reporting', 'pClass' : '', 'pStyle' : 'font-weight: 500;'} %}
+                {% include 'components/title.html.twig' with {'class' : 'header-color d-flex align-items-center justify-content-center font-weight-bold mt-2 p-2 date-reporting', 'style' : 'font-size: 14px', 'title' : '', 'pClass' : 'text-white', 'pStyle' : ''} %}
+            </div>
+            <div class="row d-flex flex-column">
+                <div class="container">
+                    <div id="nombreContainer_reporting" class="mt-1 py-3">
+                        <div class="row justify-content-around mt-2">
+                            <div class="col-sm-3 text-center align-items-center font-weight-bold">
+                                <i class="far fa-file-alt text-color-secondary" style="font-size: 30px;"></i>
+                                <p class="mt-2 mb-0">
+                                    <span class="font-weight-bold" style="font-size: 12px;">Nombre total</span><br>
+                                    <span class="font-weight-bold" style="font-size: 12px;">de procédures</span><br>
+                                    <span id="totalDonuts_reporting" class="h6"></span>
+                                </p>
+                            </div>
+                            <div class="col-sm-3 text-center align-items-center font-weight-bold">
+                                <i class="far fa-envelope text-color-secondary" style="font-size: 30px;"></i>
+                                <p class="mt-2 mb-0">
+                                    <span class="font-weight-bold" style="font-size: 12px;">Nombre total</span><br>
+                                    <span class="font-weight-bold" style="font-size: 12px;">de relances RAR</span><br>
+                                    <span id="relances_rar_reporting" class="h6"></span>
+                                </p>
+                            </div>
+                            <div class="col-sm-3 text-center align-items-center font-weight-bold">
+                                <i class="far fa-user text-color-secondary" style="font-size: 30px;"></i>
+                                <p class="mt-2 mb-0">
+                                    <span class="font-weight-bold" style="font-size: 12px;">Moyenne d'exploitants</span><br>
+                                    <span class="font-weight-bold" style="font-size: 12px;">par procédure</span><br>
+                                    <span id="average_exploitants_reporting" class="h6"></span>
+                                </p>
+                            </div>
+                            <div class="col-sm-3 text-center align-items-center font-weight-bold">
+                                <i class="far fa-regular fa-paper-plane text-color-secondary" style="font-size: 30px;"></i>
+                                <p class="mt-2 mb-0">
+                                    <span class="font-weight-bold" style="font-size: 12px;">Nombre de relances</span><br>
+                                    <span class="font-weight-bold" style="font-size: 12px;">automatiques</span><br>
+                                    <span id="relances_auto_reporting" class="h6"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="messageContainer" class="container text-center py-3 d-none">
+                    <p>Aucune donnée disponible pour la période ou la sélection spécifiée.</p>
+                </div>
+                <div id="chartContainer" class="container-fluid py-3">
+                    <div class="row justify-content-around mb-1">
+                        <div class="col-5 col-sm-5 col-lg-5 mb-2 chart-stats chart-1">
+                            <div class="row">
+                                <div id="chart-5" class="col-md-12 mx-auto">
+                                    <div class="text-center m-2">
+                                        <h4 class="titre titre-1 font-weight-bold" style="font-size: 12px; margin-bottom: 10px;">Détail par type de procédure DT-DICT</h4>
+                                    </div>
+                                    <div class="programming-stats">
+                                        <div class="chart-container" style="height: 200px;">
+                                            <canvas class="my-chart-5" style="height: 200px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="programming-stats mt-2 mb-2 d-flex justify-content-around align-items-center">
+                                        <div id="legend-container" class="legend-container-5 text-color-secondary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 col-sm-5 col-lg-5 mb-2 chart-stats chart-2">
+                            <div class="row">
+                                <div id="chart-6" class="col-md-12 mx-auto">
+                                    <div class="text-center m-2">
+                                        <h4 class="titre chart-title-1 titre-2 font-weight-bold" style="font-size: 12px; margin-bottom: 10px;">Détail par type de procédure de voirie</h4>
+                                    </div>
+                                    <div class="programming-stats">
+                                        <div class="chart-container" style="height: 200px;">
+                                            <canvas class="my-chart-6" style="height: 200px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="programming-stats mt-2 mb-2 d-flex justify-content-around align-items-center">
+                                        <div id="legend-container" class="legend-container-6 text-color-secondary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around">
+                        <div class="col-5 col-sm-5 col-lg-5 chart-stats chart-3">
+                            <div class="row">
+                                <div id="chart-7" class="col-md-12 mx-auto">
+                                    <div class="text-center m-2">
+                                        <h4 class="titre titre-3 font-weight-bold" style="font-size: 12px; margin-bottom: 10px;">Nombre d'exploitants par type de procédure</h4>
+                                    </div>
+                                    <div class="programming-stats">
+                                        <div class="chart-container" style="height: 200px;">
+                                            <canvas class="my-chart-7" style="height: 200px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="programming-stats mt-2 mb-2 d-flex justify-content-around align-items-center">
+                                        <div id="legend-container" class="legend-container-7 text-color-secondary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 col-sm-5 col-lg-5 chart-stats chart-4">
+                            <div class="row">
+                                <div id="chart-8" class="col-md-12 mx-auto">
+                                    <div class="text-center m-2">
+                                        <h4 id="titreProcGroup" class="titre titre-4 font-weight-bold" style="font-size: 12px; margin-bottom: 10px;">Nombre de procédures par société</h4>
+                                    </div>
+                                    <div class="programming-stats">
+                                        <div class="chart-container" style="height: 200px;">
+                                            <canvas class="my-chart-8" style="height: 200px;"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="programming-stats mt-2 mb-2 d-flex justify-content-around align-items-center">
+                                        <div id="legend-container" class="legend-container-8 text-color-secondary"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'components/title.html.twig' with {'class' : 'p-2 d-flex align-items-center justify-content-end text-color-secondary', 'style' : 'font-size: 15px', 'title' : 'Plateforme DICT Assistance', 'pClass' : '', 'pStyle' : ''} %}
+    </div>
+    <div id="tableContainer" class="mt-2" style="width: 555.28pt; height: auto; display: none"></div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('reporting') }}
+{% endblock %}
